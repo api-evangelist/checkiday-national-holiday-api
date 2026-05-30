@@ -1,0 +1,81 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Checkiday
+providerId: checkiday-national-holiday-api
+created: '2026-05-30'
+modified: '2026-05-30'
+tags:
+  - Calendar
+  - Holidays
+  - Events
+  - Rate Limiting
+  - Quotas
+  - Throttling
+description: |
+  Machine-readable rate-limit definitions for the Checkiday Holiday and
+  Event API routed through apilayer. Checkiday enforces per-API-key monthly
+  request quotas and surfaces remaining quota on every response via the
+  `x-ratelimit-limit-month` and `x-ratelimit-remaining-month` HTTP headers,
+  which are also mirrored into the JSON response body as a `rateLimit`
+  envelope.
+headers:
+  limitMonth: x-ratelimit-limit-month
+  remainingMonth: x-ratelimit-remaining-month
+  retryAfter: Retry-After
+responseCodes:
+  quotaExceeded: 429
+  unauthorized: 401
+  serviceUnavailable: 503
+responseEnvelope:
+  field: rateLimit
+  properties:
+    limitMonth: integer
+    remainingMonth: integer
+limits:
+  - tier: free
+    name: Free Tier Monthly Quota
+    scope: api-key
+    metric: requests_per_month
+    limit: 100
+    timeFrame: month
+    applies:
+      - Checkiday Holiday and Event API
+  - tier: basic
+    name: Basic Tier Monthly Quota
+    scope: api-key
+    metric: requests_per_month
+    limit: 5000
+    timeFrame: month
+    applies:
+      - Checkiday Holiday and Event API
+  - tier: pro
+    name: Pro Tier Monthly Quota
+    scope: api-key
+    metric: requests_per_month
+    limit: 50000
+    timeFrame: month
+    applies:
+      - Checkiday Holiday and Event API
+  - tier: enterprise
+    name: Enterprise Tier Monthly Quota
+    scope: api-key
+    metric: requests_per_month
+    limit: 250000
+    timeFrame: month
+    applies:
+      - Checkiday Holiday and Event API
+  - tier: custom
+    name: Custom Tier Monthly Quota
+    scope: api-key
+    metric: requests_per_month
+    limit: TBD
+    timeFrame: month
+    applies:
+      - Checkiday Holiday and Event API
+recoveryGuidance: |
+  When a 429 is returned, the monthly quota for the API key has been exhausted.
+  Wait until the start of the next calendar month or upgrade the plan on
+  apilayer.com/marketplace/checkiday-api. Inspect the `x-ratelimit-remaining-month`
+  header proactively in your client to throttle on the consumer side before
+  hitting zero.

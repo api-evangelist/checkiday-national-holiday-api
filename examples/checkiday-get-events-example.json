@@ -1,0 +1,60 @@
+{
+  "operationId": "getEvents",
+  "summary": "Get Events For Date",
+  "description": "Request and response example for /events. Returns single-day, multi-day-starting, and multi-day-ongoing events for a date, with rate-limit metadata.",
+  "request": {
+    "method": "GET",
+    "url": "https://api.apilayer.com/checkiday/events?date=5%2F5%2F2025&timezone=America%2FNew_York&adult=true",
+    "headers": {
+      "apikey": "YOUR_API_KEY"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json",
+      "x-ratelimit-limit-month": "100",
+      "x-ratelimit-remaining-month": "88"
+    },
+    "body": {
+      "timezone": "America/New_York",
+      "date": "05/05/2025",
+      "adult": true,
+      "events": [
+        {
+          "id": "b80630ae75c35f34c0526173dd999cfc",
+          "name": "Cinco de Mayo",
+          "url": "https://www.checkiday.com/b80630ae75c35f34c0526173dd999cfc/cinco-de-mayo"
+        },
+        {
+          "id": "346052f12d9209ef2119f45565a47279",
+          "name": "Totally Chipotle Day",
+          "url": "https://www.checkiday.com/346052f12d9209ef2119f45565a47279/totally-chipotle-day"
+        }
+      ],
+      "multiday_starting": [
+        {
+          "id": "b9321bf3ce70e98fb385cb03d2f0cac4",
+          "name": "Teacher Appreciation Week",
+          "url": "https://www.checkiday.com/b9321bf3ce70e98fb385cb03d2f0cac4/teacher-appreciation-week"
+        }
+      ],
+      "multiday_ongoing": [
+        {
+          "id": "676cd91e31adcacd0a505117d2c4a842",
+          "name": "Be Kind to Animals Week",
+          "url": "https://www.checkiday.com/676cd91e31adcacd0a505117d2c4a842/be-kind-to-animals-week"
+        },
+        {
+          "id": "9cc82cc56178ba41f120381a4d6e5213",
+          "name": "Syringomyelia Awareness Month",
+          "url": "https://www.checkiday.com/9cc82cc56178ba41f120381a4d6e5213/syringomyelia-awareness-month"
+        }
+      ],
+      "rateLimit": {
+        "limitMonth": 100,
+        "remainingMonth": 88
+      }
+    }
+  }
+}

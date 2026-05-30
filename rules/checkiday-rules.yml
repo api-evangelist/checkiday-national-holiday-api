@@ -1,0 +1,80 @@
+extends:
+  - spectral:oas
+rules:
+  checkiday-operation-id-camelcase:
+    description: Operation IDs MUST be camelCase.
+    given: $.paths[*][*].operationId
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+  checkiday-summary-title-case:
+    description: Operation summaries MUST be in Title Case.
+    given: $.paths[*][*].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][A-Za-z0-9]*( [A-Z][A-Za-z0-9]*)*$"
+  checkiday-tag-required:
+    description: Every operation MUST have at least one tag.
+    given: $.paths[*][*]
+    severity: error
+    then:
+      field: tags
+      function: truthy
+  checkiday-apikey-header-auth-required:
+    description: The API MUST declare an apiKey header security scheme named `apikey` (apilayer convention).
+    given: $.components.securitySchemes
+    severity: error
+    then:
+      field: apiKey
+      function: truthy
+  checkiday-security-applied:
+    description: Every operation MUST require the apikey security scheme.
+    given: $.paths[*][*]
+    severity: error
+    then:
+      field: security
+      function: truthy
+  checkiday-rate-limit-headers:
+    description: Successful responses SHOULD document `x-ratelimit-limit-month` and `x-ratelimit-remaining-month` headers.
+    given: $.paths[*][*].responses.200.headers
+    severity: warn
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          required:
+            - x-ratelimit-limit-month
+            - x-ratelimit-remaining-month
+  checkiday-event-id-format:
+    description: Event IDs SHOULD be 32-character lowercase hexadecimal strings.
+    given: "$.components.schemas.EventSummary.properties.id"
+    severity: info
+    then:
+      field: pattern
+      function: truthy
+  checkiday-search-query-min-length:
+    description: The `query` parameter on /search MUST enforce a minimum length of 3.
+    given: $.paths['/search'].get.parameters[?(@.name=='query')].schema
+    severity: error
+    then:
+      field: minLength
+      function: truthy
+  checkiday-snake-case-response-fields:
+    description: Response object property names SHOULD use snake_case (Checkiday convention) — except rateLimit envelope.
+    given: $.components.schemas[*].properties[?(@property.match(/^[A-Z]/))]
+    severity: info
+    then:
+      function: falsy
+  checkiday-base-url-apilayer:
+    description: The server URL MUST be routed through api.apilayer.com.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://api\\.apilayer\\.com/.*"

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/draft-00/schema",
+  "name": "CheckidayEventSummaryStructure",
+  "type": "object",
+  "description": "Structural definition of a Checkiday Event Summary used in list and search responses.",
+  "properties": {
+    "id": { "type": "string", "description": "The Event Id." },
+    "name": { "type": "string", "description": "The Event name." },
+    "url": { "type": "string", "description": "The Event URL on checkiday.com." }
+  }
+}

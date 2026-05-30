@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-structure.org/draft-00/schema",
+  "name": "CheckidayEventDetailStructure",
+  "type": "object",
+  "description": "Structural definition of a detailed Checkiday Event including descriptions, founders, observance patterns, and occurrences.",
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "url": { "type": "string" },
+    "adult": { "type": "boolean" },
+    "alternate_names": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "first_year": { "type": "integer" },
+          "last_year": { "type": "integer" }
+        }
+      }
+    },
+    "hashtags": { "type": "array", "items": { "type": "string" } },
+    "image": {
+      "type": "object",
+      "properties": {
+        "small": { "type": "string" },
+        "medium": { "type": "string" },
+        "large": { "type": "string" }
+      }
+    },
+    "sources": { "type": "array", "items": { "type": "string" } },
+    "description": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "html": { "type": "string" },
+        "markdown": { "type": "string" }
+      }
+    },
+    "how_to_observe": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "html": { "type": "string" },
+        "markdown": { "type": "string" }
+      }
+    },
+    "patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "first_year": { "type": "integer" },
+          "last_year": { "type": "integer" },
+          "observed": { "type": "string" },
+          "observed_html": { "type": "string" },
+          "observed_markdown": { "type": "string" },
+          "length": { "type": "integer" }
+        }
+      }
+    },
+    "occurrences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": { "type": "string" },
+          "length": { "type": "integer" }
+        }
+      }
+    },
+    "founders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "url": { "type": "string" },
+          "date": { "type": "string" }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/checkiday-national-holiday-api/json-schema/checkiday-event-detail-schema.json",
+  "title": "Checkiday Event Detail",
+  "description": "A detailed holiday or observance including descriptions, founders, observance patterns, and occurrences.",
+  "type": "object",
+  "required": ["id", "name", "url", "adult", "alternate_names"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "url": { "type": "string", "format": "uri" },
+    "adult": {
+      "type": "boolean",
+      "description": "Whether this Event is unsafe for children or viewing at work."
+    },
+    "alternate_names": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "first_year": { "type": ["integer", "null"] },
+          "last_year": { "type": ["integer", "null"] }
+        }
+      }
+    },
+    "hashtags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "image": {
+      "type": "object",
+      "required": ["small", "medium", "large"],
+      "properties": {
+        "small": { "type": "string", "format": "uri" },
+        "medium": { "type": "string", "format": "uri" },
+        "large": { "type": "string", "format": "uri" }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" }
+    },
+    "description": {
+      "$ref": "#/$defs/RichText"
+    },
+    "how_to_observe": {
+      "$ref": "#/$defs/RichText"
+    },
+    "patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["observed", "observed_html", "observed_markdown", "length"],
+        "properties": {
+          "first_year": { "type": ["integer", "null"] },
+          "last_year": { "type": ["integer", "null"] },
+          "observed": { "type": "string" },
+          "observed_html": { "type": "string" },
+          "observed_markdown": { "type": "string" },
+          "length": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "occurrences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["date", "length"],
+        "properties": {
+          "date": { "type": "string" },
+          "length": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "founders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "date": { "type": "string" }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "RichText": {
+      "type": "object",
+      "description": "Text formatted as plain text, HTML, and Markdown.",
+      "properties": {
+        "text": { "type": "string" },
+        "html": { "type": "string" },
+        "markdown": { "type": "string" }
+      }
+    }
+  }
+}

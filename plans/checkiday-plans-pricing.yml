@@ -1,0 +1,136 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Checkiday
+providerId: checkiday-national-holiday-api
+created: '2026-05-30'
+modified: '2026-05-30'
+tags:
+  - Calendar
+  - Holidays
+  - Events
+  - Observances
+  - Public APIs
+description: |
+  Machine-readable plans and pricing for the Checkiday Holiday and Event API,
+  routed through the apilayer marketplace. Pricing and quotas reflect the
+  published tier ladder on apilayer.com/marketplace/checkiday-api.
+plans:
+  - id: checkiday-free
+    name: Free
+    type: freemium
+    description: |
+      Free entry tier with 100 monthly requests, no credit card required.
+      Suitable for evaluation, hobby projects, and proof-of-concept work.
+    entries:
+      - label: API Requests
+        description: Monthly request quota across all Checkiday endpoints.
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 100
+        timeFrame: month
+        geo: global
+        domains: []
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Public Documentation
+      - name: All Endpoints (/events, /event, /search)
+      - name: Official Client SDKs (8 languages)
+      - name: Community Support
+  - id: checkiday-basic
+    name: Basic
+    type: paid
+    description: |
+      Entry paid tier with 5,000 monthly requests at $9.99/month, suitable
+      for small applications and indie publishers.
+    entries:
+      - label: API Requests
+        description: Monthly request quota across all Checkiday endpoints.
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 5000
+        timeFrame: month
+        geo: global
+        domains: []
+        unit: 1
+        price: '9.99'
+        userMultiplied: false
+    elements:
+      - name: All Endpoints
+      - name: Official Client SDKs
+      - name: Email Support
+  - id: checkiday-pro
+    name: Pro
+    type: paid
+    description: |
+      Production tier with 50,000 monthly requests at $49.99/month for
+      media, marketing, and SaaS workloads.
+    entries:
+      - label: API Requests
+        description: Monthly request quota across all Checkiday endpoints.
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 50000
+        timeFrame: month
+        geo: global
+        domains: []
+        unit: 1
+        price: '49.99'
+        userMultiplied: false
+    elements:
+      - name: All Endpoints
+      - name: Official Client SDKs
+      - name: Priority Email Support
+  - id: checkiday-enterprise
+    name: Enterprise
+    type: paid
+    description: |
+      Enterprise tier with 250,000 monthly requests at $99.99/month for
+      high-volume publishers, networks, and platforms.
+    entries:
+      - label: API Requests
+        description: Monthly request quota across all Checkiday endpoints.
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 250000
+        timeFrame: month
+        geo: global
+        domains: []
+        unit: 1
+        price: '99.99'
+        userMultiplied: false
+    elements:
+      - name: All Endpoints
+      - name: Official Client SDKs
+      - name: Priority Support
+      - name: Enterprise SLA (via apilayer)
+  - id: checkiday-custom
+    name: Custom
+    type: enterprise
+    description: |
+      Volume-based custom pricing for monthly quotas above 250,000 requests
+      and for organizations with bespoke SLA, billing, or routing needs.
+      Contact apilayer sales for terms.
+    entries:
+      - label: API Requests
+        description: Negotiated monthly request quota.
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: TBD
+        timeFrame: month
+        geo: global
+        domains: []
+        unit: 1
+        price: TBD
+        userMultiplied: false
+    elements:
+      - name: All Endpoints
+      - name: Custom SLA
+      - name: Dedicated Account Management

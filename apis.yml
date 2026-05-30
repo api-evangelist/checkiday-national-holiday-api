@@ -1,32 +1,220 @@
 aid: checkiday-national-holiday-api
-name: Checkiday - National Holiday API
-description: "Industry-leading Holiday API. Over 5,000 holidays and thousands of descriptions. Trusted by the World’s leading companies"
+name: Checkiday - National Holiday and Event API
+description: |
+  Industry-leading Holiday and Event API by Checkiday, providing data on more
+  than 5,000 national, international, and bizarre holidays and observances with
+  thousands of descriptions, hashtags, images, founders, alternate names, and
+  multi-year occurrence patterns. Routed through the apilayer marketplace with
+  X-API-Key (apikey) header authentication and official client libraries for
+  JavaScript, TypeScript, Python, C#, PHP, Go, Dart, Rust, and Java/Kotlin.
+  Trusted since 2011 by media organizations including CNN, The New York Times,
+  and USA Today.
 url: https://apilayer.com/marketplace/checkiday-api
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-05-30'
 x-source: public-apis/public-apis
-x-category: "Calendar"
+x-category: Calendar
+x-type: company
 x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis
 tags:
   - Calendar
+  - Holidays
+  - Events
+  - Observances
+  - Dates
+  - Time
   - Public APIs
 apis:
-  - name: Checkiday - National Holiday API
-    description: "Industry-leading Holiday API. Over 5,000 holidays and thousands of descriptions. Trusted by the World’s leading companies"
+  - aid: checkiday-national-holiday-api:checkiday-holiday-api
+    name: Checkiday Holiday and Event API
+    description: |
+      REST API delivering daily holiday and observance data. Provides three
+      operations — list events for a date (`/events`), look up event details
+      by id (`/event`), and full-text search across events (`/search`).
+      Authenticated via the `apikey` header and routed through
+      `api.apilayer.com/checkiday`. Monthly rate limits are returned with
+      every response via `x-ratelimit-limit-month` and
+      `x-ratelimit-remaining-month` headers.
     humanURL: https://apilayer.com/marketplace/checkiday-api
-    baseURL: https://apilayer.com/marketplace/checkiday-api
+    baseURL: https://api.apilayer.com/checkiday
     tags:
       - Calendar
+      - Holidays
+      - Events
     properties:
       - type: Documentation
         url: https://apilayer.com/marketplace/checkiday-api
+      - type: APIReference
+        url: https://apilayer.com/marketplace/checkiday-api
+      - type: OpenAPI
+        url: openapi/checkiday-openapi.yml
+      - type: Authentication
+        url: https://apilayer.com/marketplace/checkiday-api
+      - type: SignUp
+        url: https://apilayer.com/marketplace/checkiday-api#pricing
+      - type: Pricing
+        url: https://apilayer.com/marketplace/checkiday-api#pricing
+      - type: RateLimits
+        url: rate-limits/checkiday-rate-limits.yml
+      - type: Plans
+        url: plans/checkiday-plans-pricing.yml
+      - type: SDK
+        url: https://github.com/westy92/holiday-event-api-js
+      - type: SDK
+        url: https://github.com/westy92/holiday-event-api-python
+      - type: SDK
+        url: https://github.com/westy92/holiday-event-api-csharp
+      - type: SDK
+        url: https://github.com/westy92/holiday-event-api-php
+      - type: SDK
+        url: https://github.com/westy92/holiday-event-api-go
+      - type: SDK
+        url: https://github.com/westy92/holiday-event-api-dart
+      - type: SDK
+        url: https://github.com/westy92/holiday-event-api-rust
+      - type: SDK
+        url: https://github.com/westy92/holiday-event-api-java
+      - type: JSONSchema
+        url: json-schema/checkiday-event-summary-schema.json
+      - type: JSONSchema
+        url: json-schema/checkiday-event-detail-schema.json
+      - type: JSONSchema
+        url: json-schema/checkiday-get-events-response-schema.json
+      - type: JSONSchema
+        url: json-schema/checkiday-get-event-info-response-schema.json
+      - type: JSONSchema
+        url: json-schema/checkiday-search-response-schema.json
+      - type: JSONStructure
+        url: json-structure/checkiday-event-summary-structure.json
+      - type: JSONStructure
+        url: json-structure/checkiday-event-detail-structure.json
+      - type: CodeExamples
+        url: examples/checkiday-get-events-example.json
+      - type: CodeExamples
+        url: examples/checkiday-get-event-info-example.json
+      - type: CodeExamples
+        url: examples/checkiday-search-example.json
 common:
   - type: Website
     url: https://apilayer.com/marketplace/checkiday-api
+  - type: Portal
+    url: https://apilayer.com/
+  - type: Marketplace
+    url: https://apilayer.com/marketplace
+  - type: SignUp
+    url: https://apilayer.com/marketplace/checkiday-api#pricing
+  - type: Login
+    url: https://apilayer.com/auth/login
+  - type: Pricing
+    url: https://apilayer.com/marketplace/checkiday-api#pricing
+  - type: TermsOfService
+    url: https://apilayer.com/terms
+  - type: PrivacyPolicy
+    url: https://apilayer.com/privacy-policy
+  - type: Support
+    url: https://apilayer.com/contact
+  - type: Contact
+    url: https://apilayer.com/contact
+  - type: StatusPage
+    url: https://status.apilayer.com/
+  - type: Blog
+    url: https://blog.apilayer.com/
+  - type: GitHubOrganization
+    url: https://github.com/westy92
+  - type: GitHubRepository
+    url: https://github.com/westy92/holiday-event-api-js
   - type: PublicAPIsListing
     url: https://github.com/public-apis/public-apis
+  - type: JSONLD
+    url: json-ld/checkiday-national-holiday-api-context.jsonld
+  - type: Resources
+    name: Checkiday Vocabulary
+    url: vocabulary/checkiday-national-holiday-api-vocabulary.yml
+  - type: Resources
+    name: Checkiday Spectral Rules
+    url: rules/checkiday-rules.yml
+  - type: Resources
+    name: Holiday Lookup Capability
+    url: capabilities/holiday-lookup.yaml
+  - type: Resources
+    name: Event Discovery Capability
+    url: capabilities/event-discovery.yaml
+  - type: Resources
+    name: Editorial Calendar Capability
+    url: capabilities/editorial-calendar.yaml
+  - type: Resources
+    name: Checkiday FinOps
+    url: finops/checkiday-finops.yml
+features:
+  - name: 5,000+ Holidays
+    description: Coverage of more than 5,000 national, international, and bizarre holidays and observances across the calendar year.
+  - name: Multi-day Event Awareness
+    description: Distinguishes single-day events, multi-day events that start on a date, and multi-day events still ongoing on a date.
+  - name: Rich Event Detail
+    description: Each event exposes descriptions in plain text, HTML, and Markdown, plus alternate names, founders, hashtags, sources, and how-to-observe text.
+  - name: Image Assets
+    description: Small, medium, and large image variants for each event suitable for editorial and social-media use.
+  - name: Occurrence Patterns
+    description: Historical and forward-looking occurrence dates with configurable start and end year ranges, plus per-pattern length and observance rules.
+  - name: Full-text Event Search
+    description: Search across all events by name or description with adult-content filtering.
+  - name: Timezone-aware Date Lookups
+    description: IANA timezone parameter ensures the "today" date is calculated correctly across regions and DST boundaries.
+  - name: Adult Content Filtering
+    description: Optional `adult` flag toggles inclusion of events that may be unsafe for viewing at work or by children.
+  - name: Per-response Rate-limit Visibility
+    description: Every response echoes the monthly quota and remaining requests as JSON fields and HTTP headers.
+  - name: Eight Official Client SDKs
+    description: First-party libraries for JavaScript, TypeScript, Python, C#, PHP, Go, Dart, Rust, and Java/Kotlin published to their canonical package registries.
+useCases:
+  - name: Editorial Calendar Planning
+    description: Newsrooms and content teams plan daily articles, social posts, and segments around recognized holidays and observances.
+  - name: Social Media Automation
+    description: Schedulers and bots auto-generate hashtag-aware posts celebrating each day's holidays across multiple channels.
+  - name: Marketing Campaign Triggers
+    description: E-commerce and retail platforms launch themed promotions tied to seasonal and bizarre holidays.
+  - name: Chatbot and Assistant Enrichment
+    description: Conversational AI surfaces today's events when greeting users or building daily briefings.
+  - name: Email and Push Notifications
+    description: Newsletter platforms include "today is..." segments using the events feed.
+  - name: Restaurant and Hospitality Specials
+    description: Food-themed holidays drive daily menus, specials, and POS promotions.
+  - name: Education and Classroom Activities
+    description: Teachers use holiday data to anchor lessons, vocabulary, and discussion topics.
+integrations:
+  - name: Slack
+    description: Post the day's events into team channels via webhook automations.
+  - name: Discord
+    description: Community bots (e.g. `1upbyte/Checkiday-Discord`) report the day's holidays in servers.
+  - name: Zapier
+    description: Trigger workflows when specific holidays occur or are upcoming.
+  - name: Make (Integromat)
+    description: Compose multi-step automations that consume the events feed.
+  - name: HubSpot
+    description: Drive marketing-automation workflows from upcoming-holiday triggers.
+  - name: Mailchimp
+    description: Inject today's holidays into transactional and broadcast emails.
+  - name: Buffer
+    description: Schedule holiday-themed social posts in advance.
+  - name: WordPress
+    description: Plugins embed today's holidays in publisher sidebars and blog posts.
+  - name: Shopify
+    description: Holiday-aware merchandising and email triggers for storefronts.
+  - name: Sopel IRC
+    description: `sopel-checkiday` community plugin surfaces holidays in IRC channels.
+solutions:
+  - name: Free Tier
+    description: 100 monthly requests with no credit card for evaluation and hobby projects.
+  - name: Basic Tier
+    description: 5,000 monthly requests at $9.99/month for small applications and indie publishers.
+  - name: Pro Tier
+    description: 50,000 monthly requests at $49.99/month for production media and marketing workloads.
+  - name: Enterprise Tier
+    description: 250,000 monthly requests at $99.99/month for high-volume publishers and platforms.
+  - name: Custom Volume
+    description: Negotiated pricing above 250k requests for enterprises and aggregators.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

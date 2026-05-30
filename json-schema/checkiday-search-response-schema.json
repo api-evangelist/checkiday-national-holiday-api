@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/checkiday-national-holiday-api/json-schema/checkiday-search-response-schema.json",
+  "title": "Checkiday Search Response",
+  "description": "Response payload returned by GET /search.",
+  "type": "object",
+  "required": ["query", "adult", "events", "rateLimit"],
+  "properties": {
+    "query": { "type": "string", "minLength": 3 },
+    "adult": { "type": "boolean" },
+    "events": {
+      "type": "array",
+      "items": { "$ref": "checkiday-event-summary-schema.json" }
+    },
+    "rateLimit": {
+      "type": "object",
+      "required": ["limitMonth", "remainingMonth"],
+      "properties": {
+        "limitMonth": { "type": "integer" },
+        "remainingMonth": { "type": "integer" }
+      }
+    }
+  }
+}

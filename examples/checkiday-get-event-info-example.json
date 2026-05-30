@@ -1,0 +1,81 @@
+{
+  "operationId": "getEventInfo",
+  "summary": "Get Event By Id",
+  "description": "Request and response example for /event. Fetches a full event record by id with descriptions, hashtags, images, sources, founders, patterns, and occurrences.",
+  "request": {
+    "method": "GET",
+    "url": "https://api.apilayer.com/checkiday/event?id=f90b893ea04939d7456f30c54f68d7b4&start=2001&end=2003",
+    "headers": {
+      "apikey": "YOUR_API_KEY"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json",
+      "x-ratelimit-limit-month": "100",
+      "x-ratelimit-remaining-month": "87"
+    },
+    "body": {
+      "event": {
+        "id": "f90b893ea04939d7456f30c54f68d7b4",
+        "name": "International Cat Day",
+        "alternate_names": [],
+        "adult": false,
+        "url": "https://www.checkiday.com/f90b893ea04939d7456f30c54f68d7b4/international-cat-day",
+        "hashtags": [
+          "InternationalCatDay",
+          "CatDay"
+        ],
+        "image": {
+          "small": "https://static.checkiday.com/img/300/kittens-555822.jpg",
+          "medium": "https://static.checkiday.com/img/600/kittens-555822.jpg",
+          "large": "https://static.checkiday.com/img/1200/kittens-555822.jpg"
+        },
+        "sources": [
+          "https://www.ibtimes.com/international-cat-day-2014-cat-lovers-worldwide-celebrate-feline-obsession-1653614",
+          "https://www.ifaw.org/united-states/news/ifaw-marks-international-cat-day"
+        ],
+        "founders": [
+          {
+            "name": "International Fund For Animal Welfare",
+            "url": "https://www.ifaw.org/",
+            "date": "2002"
+          }
+        ],
+        "description": {
+          "text": "International Cat Day celebrates love for cats...",
+          "html": "<p>International Cat Day celebrates love for cats...</p>",
+          "markdown": "International Cat Day celebrates love for cats..."
+        },
+        "how_to_observe": {
+          "text": "Spend the day playing with your cat...",
+          "html": "<p>Spend the day playing with your cat...</p>",
+          "markdown": "Spend the day playing with your cat..."
+        },
+        "patterns": [
+          {
+            "first_year": 2002,
+            "last_year": null,
+            "observed": "annually on August 8th",
+            "observed_html": "annually on <strong>August 8th</strong>",
+            "observed_markdown": "annually on **August 8th**",
+            "length": 1
+          }
+        ],
+        "occurrences": [
+          { "date": "2002-08-08T00:00:00.000Z", "length": 1 },
+          { "date": "2003-08-08T00:00:00.000Z", "length": 1 }
+        ],
+        "tags": [
+          { "name": "Animals" },
+          { "name": "Awareness" }
+        ]
+      },
+      "rateLimit": {
+        "limitMonth": 100,
+        "remainingMonth": 87
+      }
+    }
+  }
+}

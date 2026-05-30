@@ -1,0 +1,86 @@
+name: Checkiday Holiday and Event API Vocabulary
+description: >-
+  Domain vocabulary for the Checkiday Holiday and Event API, covering the
+  events catalog (single-day and multi-day holidays, observances, awareness
+  campaigns), their descriptions and observance patterns, the apilayer
+  delivery surface, and the rate-limit envelope returned with every response.
+modified: '2026-05-30'
+terms:
+  - term: Event
+    definition: A holiday, observance, awareness campaign, or other dated occurrence in the Checkiday catalog.
+    related: [EventSummary, EventDetail, Occurrence]
+  - term: EventSummary
+    definition: The compact form of an Event returned in list and search responses; carries `id`, `name`, and `url`.
+    related: [Event, GetEventsResponse, SearchResponse]
+  - term: EventDetail
+    definition: The full form of an Event with descriptions, founders, hashtags, images, sources, alternate names, observance patterns, and occurrences.
+    related: [Event, GetEventInfoResponse]
+  - term: Holiday
+    definition: A widely recognized celebratory or commemorative Event (e.g. Cinco de Mayo, International Cat Day).
+    related: [Event]
+  - term: Observance
+    definition: An Event with cultural, religious, or awareness significance that may not be a formal public holiday.
+    related: [Event]
+  - term: MultiDayEvent
+    definition: An Event whose observance spans more than one day (e.g. Teacher Appreciation Week, Awareness Month).
+    related: [Event, MultidayStarting, MultidayOngoing]
+  - term: MultidayStarting
+    definition: A list of multi-day Events that begin on the requested date.
+    related: [GetEventsResponse, MultiDayEvent]
+  - term: MultidayOngoing
+    definition: A list of multi-day Events that are still being observed on the requested date but began earlier.
+    related: [GetEventsResponse, MultiDayEvent]
+  - term: AdultFlag
+    definition: A boolean parameter controlling whether Events unsafe for children or the workplace are included in results.
+    related: [GetEventsRequest, SearchRequest, EventDetail]
+  - term: AlternateName
+    definition: An additional name an Event is known by, optionally bounded by the years it was in effect.
+    related: [EventDetail]
+  - term: Founder
+    definition: The person, organization, or campaign that originated an Event, with optional URL and founding date.
+    related: [EventDetail]
+  - term: Hashtag
+    definition: A social-media tag associated with an Event, suitable for cross-platform publishing.
+    related: [EventDetail]
+  - term: Source
+    definition: A citation URL that documents or attests to an Event.
+    related: [EventDetail]
+  - term: RichText
+    definition: A text value provided in three encodings — plain text, HTML, and Markdown — for editorial flexibility.
+    related: [EventDetail]
+  - term: HowToObserve
+    definition: A RichText description of how an Event is typically celebrated or observed.
+    related: [RichText, EventDetail]
+  - term: Pattern
+    definition: A rule that defines when an Event is observed, with optional first/last year, a length in days, and an observed description.
+    related: [Occurrence, EventDetail]
+  - term: Occurrence
+    definition: A concrete date instance of an Event observance, with a length in days.
+    related: [Pattern, EventDetail]
+  - term: Tag
+    definition: A topical label attached to an Event for grouping (e.g. Food, Animals, Awareness).
+    related: [Event]
+  - term: ImageInfo
+    definition: A set of small, medium, and large image URLs for an Event suitable for editorial and social-media use.
+    related: [EventDetail]
+  - term: IANA Timezone
+    definition: A timezone identifier (e.g. `America/Chicago`, `America/New_York`) used to calculate the date boundary for /events.
+    related: [GetEventsRequest]
+  - term: RateLimit
+    definition: The plan's monthly request quota and remaining requests, returned both as a JSON envelope and as HTTP headers.
+    related: [GetEventsResponse, GetEventInfoResponse, SearchResponse]
+  - term: ApiKey
+    definition: The credential header (`apikey`) issued by apilayer that authenticates Checkiday API requests.
+    related: [Authentication]
+  - term: ApilayerMarketplace
+    definition: The marketplace at apilayer.com that lists, packages, sells, and routes the Checkiday API.
+    related: [BaseURL]
+  - term: BaseURL
+    definition: The canonical Checkiday API base URL `https://api.apilayer.com/checkiday`.
+    related: [ApilayerMarketplace]
+  - term: Plan
+    definition: A subscription tier (Free, Basic, Pro, Enterprise, Custom) that determines monthly quota and price.
+    related: [RateLimit, Pricing]
+  - term: Pricing
+    definition: The monthly cost in USD associated with a Plan.
+    related: [Plan]

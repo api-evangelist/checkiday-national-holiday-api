@@ -1,0 +1,120 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: Checkiday
+providerId: checkiday-national-holiday-api
+publisherName: Checkiday (via apilayer)
+serviceCategory: API
+created: '2026-05-30'
+modified: '2026-05-30'
+tags:
+  - Calendar
+  - Holidays
+  - Events
+  - FinOps
+  - Cost Management
+  - FOCUS
+description: |
+  FinOps framework definition for the Checkiday Holiday and Event API as
+  delivered through the apilayer marketplace. Provides a FOCUS-aligned
+  mapping for cost allocation, monthly-quota usage measurement, and unit
+  economics across editorial, marketing, and product use cases.
+principles:
+  - name: Visibility
+    description: Surface monthly request counts and remaining quota into engineering and finance dashboards using the per-response rate-limit headers and JSON envelope.
+  - name: Allocation
+    description: Tag each Checkiday API key with the consuming team, environment, application, and feature so monthly request costs can be allocated.
+  - name: Optimization
+    description: Cache `/event` and `/search` results aggressively; the catalog changes slowly. Batch daily `/events` calls per timezone rather than per request.
+  - name: Accountability
+    description: Establish a budget owner for the Checkiday plan and define an escalation path when monthly remaining quota crosses defined thresholds.
+domains:
+  - name: Understand Usage and Cost
+    capabilities:
+      - Data Ingestion
+      - Allocation
+      - Reporting and Analytics
+      - Anomaly Management
+  - name: Quantify Business Value
+    capabilities:
+      - Planning and Estimating
+      - Forecasting
+      - Budgeting
+      - Unit Economics
+  - name: Optimize Usage and Cost
+    capabilities:
+      - Rate Optimization
+      - Workload Optimization
+      - Licensing and SaaS
+billing:
+  model: subscription
+  cadence: monthly
+  currency: USD
+  tieredQuotas: true
+  overage: not-applicable
+  notes: |
+    Checkiday is sold as fixed monthly subscriptions on apilayer with hard
+    request caps. There is no metered overage — exceeding the monthly quota
+    returns HTTP 429 until the next billing cycle or until the plan is
+    upgraded.
+costMetrics:
+  - name: MonthlyRequestQuota
+    unit: requests/month
+    description: The contracted monthly request limit for the chosen plan.
+  - name: MonthlyRequestUsage
+    unit: requests/month
+    description: Observed monthly consumption derived from `x-ratelimit-limit-month` minus `x-ratelimit-remaining-month`.
+  - name: CostPerThousandRequests
+    unit: USD per 1,000 requests
+    description: |
+      Effective unit price by tier:
+        Free: $0
+        Basic: $1.998 per 1,000 (9.99 / 5)
+        Pro:   $1.000 per 1,000 (49.99 / 50)
+        Enterprise: $0.400 per 1,000 (99.99 / 250)
+focusMapping:
+  - focusColumn: ServiceCategory
+    value: API
+  - focusColumn: ServiceName
+    value: Checkiday Holiday and Event API
+  - focusColumn: ProviderName
+    value: Checkiday
+  - focusColumn: PublisherName
+    value: apilayer
+  - focusColumn: InvoiceIssuerName
+    value: apilayer
+  - focusColumn: ChargeCategory
+    value: Usage
+  - focusColumn: ChargeClass
+    value: Subscription
+  - focusColumn: BillingCurrency
+    value: USD
+  - focusColumn: PricingUnit
+    value: requests
+  - focusColumn: ConsumedQuantity
+    value: monthly_requests
+  - focusColumn: ConsumedUnit
+    value: requests
+  - focusColumn: ListUnitPrice
+    value: per-plan fixed monthly fee
+optimization:
+  - name: Cache /event Responses
+    description: Event detail rarely changes day-to-day. Cache by event id for at least 24 hours.
+  - name: Daily /events Call Per Timezone
+    description: Pull the day's events once per timezone and broadcast internally rather than calling per page view.
+  - name: Adult Filter at Source
+    description: Set `adult=false` (the default) unless the consuming audience requires it, to reduce result size and downstream filtering cost.
+  - name: Right-size the Plan
+    description: Compare 30-day request totals against tier ceilings and downgrade or upgrade quarterly.
+governance:
+  - name: Budget Owner
+    description: A named team owns the Checkiday subscription and reviews monthly utilization.
+  - name: Threshold Alerts
+    description: Alert at 50%, 80%, and 95% of monthly quota using the per-response remaining counter.
+  - name: Tagging Standard
+    description: API keys are issued per environment (dev, staging, prod) and per consuming application for chargeback.
