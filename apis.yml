@@ -163,7 +163,9 @@ features:
   - name: Timezone-aware Date Lookups
     description: IANA timezone parameter ensures the "today" date is calculated correctly across regions and DST boundaries.
   - name: Adult Content Filtering
-    description: Optional `adult` flag toggles inclusion of events that may be unsafe for viewing at work or by children.
+    description: >-
+      Optional `adult` flag toggles inclusion of events that may be unsafe for viewing at work or by
+      children.
   - name: Per-response Rate-limit Visibility
     description: Every response echoes the monthly quota and remaining requests as JSON fields and HTTP headers.
   - name: Eight Official Client SDKs
@@ -187,7 +189,8 @@ integrations:
   - name: Slack
     description: Post the day's events into team channels via webhook automations.
   - name: Discord
-    description: Community bots (e.g. `1upbyte/Checkiday-Discord`) report the day's holidays in servers.
+    description: >-
+      Community bots (e.g. `1upbyte/Checkiday-Discord`) report the day's holidays in servers.
   - name: Zapier
     description: Trigger workflows when specific holidays occur or are upcoming.
   - name: Make (Integromat)
@@ -203,7 +206,8 @@ integrations:
   - name: Shopify
     description: Holiday-aware merchandising and email triggers for storefronts.
   - name: Sopel IRC
-    description: `sopel-checkiday` community plugin surfaces holidays in IRC channels.
+    description: >-
+      `sopel-checkiday` community plugin surfaces holidays in IRC channels.
 solutions:
   - name: Free Tier
     description: 100 monthly requests with no credit card for evaluation and hobby projects.
