@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Checkiday - National Holiday and Event API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Events For Date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apilayer.com/checkiday/events",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Date to get the events for. Defaults to today. Accepts dates such as `5/5/2025` or ISO `YYYY-MM-DD`."
+              },
+              {
+                "name": "adult",
+                "value": "",
+                "type": "query",
+                "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "IANA Time Zone for calculating dates and times. Defaults to `America/Chicago`."
+              }
+            ]
+          },
+          "docs": "Get all events for a specified date. Returns the date's events, any\nmulti-day events that start on that date, and any multi-day events\nthat are continuing their observance on that date.\n"
+        },
+        {
+          "info": {
+            "name": "Get Event By Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apilayer.com/checkiday/event",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the requested Event."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "The starting range of returned occurrences. Defaults to 2 years prior."
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "The ending range of returned occurrences. Defaults to 3 years in the future."
+              }
+            ]
+          },
+          "docs": "Get additional information for a specific Event, including alternate\nnames, hashtags, images, sources, founders, description, how to\nobserve, observance patterns, and historical and future occurrences.\n"
+        },
+        {
+          "info": {
+            "name": "Search Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apilayer.com/checkiday/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "The search query. Must be at least 3 characters long."
+              },
+              {
+                "name": "adult",
+                "value": "",
+                "type": "query",
+                "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false."
+              }
+            ]
+          },
+          "docs": "Search for events matching a query string. Query must be at least 3\ncharacters long. Returns a list of matching Event summaries.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

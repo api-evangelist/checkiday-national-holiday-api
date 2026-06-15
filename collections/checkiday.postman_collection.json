@@ -1,0 +1,1061 @@
+{
+  "item": [
+    {
+      "id": "25bea966-9880-4a38-b2f2-77ff1870b9f9",
+      "name": "Events",
+      "description": {
+        "content": "List, search, and retrieve holidays, observances, and events.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5dd9ea56-e61b-467c-a5fc-dae09c37df3f",
+          "name": "Get Events For Date",
+          "request": {
+            "name": "Get Events For Date",
+            "description": {
+              "content": "Get all events for a specified date. Returns the date's events, any\nmulti-day events that start on that date, and any multi-day events\nthat are continuing their observance on that date.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Date to get the events for. Defaults to today. Accepts dates such as `5/5/2025` or ISO `YYYY-MM-DD`."
+                },
+                {
+                  "disabled": false,
+                  "key": "adult",
+                  "value": "false",
+                  "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false."
+                },
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "America/Chicago",
+                  "description": "IANA Time Zone for calculating dates and times. Defaults to `America/Chicago`."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "410a62e9-84a0-4c8f-9517-dfda1c4d37a9",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "5/5/2025"
+                    },
+                    {
+                      "key": "adult",
+                      "value": "false"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The amount of requests allowed this month.",
+                  "key": "x-ratelimit-limit-month",
+                  "value": "5432"
+                },
+                {
+                  "disabled": false,
+                  "description": "The amount of requests remaining this month.",
+                  "key": "x-ratelimit-remaining-month",
+                  "value": "5432"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"adult\": false,\n  \"date\": \"string\",\n  \"timezone\": \"string\",\n  \"events\": [\n    {\n      \"id\": \"b80630ae75c35f34c0526173dd999cfc\",\n      \"name\": \"Cinco de Mayo\",\n      \"url\": \"https://www.checkiday.com/b80630ae75c35f34c0526173dd999cfc/cinco-de-mayo\"\n    },\n    {\n      \"id\": \"b80630ae75c35f34c0526173dd999cfc\",\n      \"name\": \"Cinco de Mayo\",\n      \"url\": \"https://www.checkiday.com/b80630ae75c35f34c0526173dd999cfc/cinco-de-mayo\"\n    }\n  ],\n  \"rateLimit\": {\n    \"limitMonth\": 6192,\n    \"remainingMonth\": 7046\n  },\n  \"multiday_starting\": [\n    {\n      \"id\": \"b80630ae75c35f34c0526173dd999cfc\",\n      \"name\": \"Cinco de Mayo\",\n      \"url\": \"https://www.checkiday.com/b80630ae75c35f34c0526173dd999cfc/cinco-de-mayo\"\n    },\n    {\n      \"id\": \"b80630ae75c35f34c0526173dd999cfc\",\n      \"name\": \"Cinco de Mayo\",\n      \"url\": \"https://www.checkiday.com/b80630ae75c35f34c0526173dd999cfc/cinco-de-mayo\"\n    }\n  ],\n  \"multiday_ongoing\": [\n    {\n      \"id\": \"b80630ae75c35f34c0526173dd999cfc\",\n      \"name\": \"Cinco de Mayo\",\n      \"url\": \"https://www.checkiday.com/b80630ae75c35f34c0526173dd999cfc/cinco-de-mayo\"\n    },\n    {\n      \"id\": \"b80630ae75c35f34c0526173dd999cfc\",\n      \"name\": \"Cinco de Mayo\",\n      \"url\": \"https://www.checkiday.com/b80630ae75c35f34c0526173dd999cfc/cinco-de-mayo\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e0c8122-1f81-4ce1-a640-5dae9944263e",
+              "name": "API key is missing, invalid, or revoked.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "5/5/2025"
+                    },
+                    {
+                      "key": "adult",
+                      "value": "false"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46332ef5-a5ba-4969-80b8-1dcbfec19a98",
+              "name": "Monthly request quota for the plan has been exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "5/5/2025"
+                    },
+                    {
+                      "key": "adult",
+                      "value": "false"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "308d2ca1-78a0-4167-a37d-bf5a607f099b",
+              "name": "An unexpected server error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "5/5/2025"
+                    },
+                    {
+                      "key": "adult",
+                      "value": "false"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bee033d-cb5f-4e03-ba32-5c2c2129cfea",
+          "name": "Get Event By Id",
+          "request": {
+            "name": "Get Event By Id",
+            "description": {
+              "content": "Get additional information for a specific Event, including alternate\nnames, hashtags, images, sources, founders, description, how to\nobserve, observance patterns, and historical and future occurrences.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "event"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the requested Event."
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>",
+                  "description": "The starting range of returned occurrences. Defaults to 2 years prior."
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<integer>",
+                  "description": "The ending range of returned occurrences. Defaults to 3 years in the future."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c0210e57-29e7-41b6-b5c2-7bd5147ce23d",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "f90b893ea04939d7456f30c54f68d7b4"
+                    },
+                    {
+                      "key": "start",
+                      "value": "2001"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2030"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The amount of requests allowed this month.",
+                  "key": "x-ratelimit-limit-month",
+                  "value": "5432"
+                },
+                {
+                  "disabled": false,
+                  "description": "The amount of requests remaining this month.",
+                  "key": "x-ratelimit-remaining-month",
+                  "value": "5432"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"event\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"url\": \"https://QZeatwZIAYBqMIBcuiStQMYrk.bicQj43c,5LF+RVDzyjP\",\n    \"adult\": true,\n    \"alternate_names\": [\n      {\n        \"name\": \"string\",\n        \"first_year\": 8001,\n        \"last_year\": 8235\n      },\n      {\n        \"name\": \"string\",\n        \"first_year\": 1416,\n        \"last_year\": 4054\n      }\n    ],\n    \"hashtags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"image\": {\n      \"small\": \"http://LwmRznLyNenFvzjIWhDzJGUasELsvQ.luudmjYjXJqF9r30vmRW,KEWLYuaMAlMe2wsFSLb,Q8x\",\n      \"medium\": \"http://ijNIuw.jhwOIk90+awhdsqWFe21MfxGZiK642ptT\",\n      \"large\": \"http://AdoNXzJW.nvxFldTC2tdlk71bvOSPWRWyhII2Po6-DvJiGasBlTLjv3nVL0ER9YMXBrIcSHea-.9k\"\n    },\n    \"sources\": [\n      \"http://HlsQrISLNunCZnstFs.aegsFxjYcFSt3IX.6rfZSSFeP.lQ-AabiSnxqh-.J+bglfxBRvcmAdb4MWnhikatGaxD5l-J\",\n      \"http://QTYSCFPzbFraWhSPzC.aqfzG2+Rfr-pdxiBEm59ftEocMRxiGP\"\n    ],\n    \"description\": {\n      \"text\": \"string\",\n      \"html\": \"string\",\n      \"markdown\": \"string\"\n    },\n    \"how_to_observe\": {\n      \"text\": \"string\",\n      \"html\": \"string\",\n      \"markdown\": \"string\"\n    },\n    \"patterns\": [\n      {\n        \"observed\": \"string\",\n        \"observed_html\": \"string\",\n        \"observed_markdown\": \"string\",\n        \"length\": 974,\n        \"first_year\": 1229,\n        \"last_year\": 6750\n      },\n      {\n        \"observed\": \"string\",\n        \"observed_html\": \"string\",\n        \"observed_markdown\": \"string\",\n        \"length\": 7004,\n        \"first_year\": 1150,\n        \"last_year\": 8223\n      }\n    ],\n    \"occurrences\": [\n      {\n        \"date\": \"string\",\n        \"length\": 79\n      },\n      {\n        \"date\": \"string\",\n        \"length\": 7165\n      }\n    ],\n    \"founders\": [\n      {\n        \"name\": \"string\",\n        \"url\": \"https://BVoPtr.ufyidFs3H9S8PLzvVbDs68JQTqjCeAu.vErCqCVBSr+MI1N4elNBCfxAY0Usvf\",\n        \"date\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"url\": \"https://DZplitFPuKzyPSWzUZu.avipwuV0nBBg0V-nUOxpzt1aWcjLf.DGY6yW3AKMlbMdx7dAtBS\",\n        \"date\": \"string\"\n      }\n    ],\n    \"tags\": [\n      {\n        \"name\": \"string\"\n      },\n      {\n        \"name\": \"string\"\n      }\n    ]\n  },\n  \"rateLimit\": {\n    \"limitMonth\": 7728,\n    \"remainingMonth\": 2130\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fb4b651-8df1-4fb8-926b-d246e75e218c",
+              "name": "The request was malformed or a required parameter was missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "f90b893ea04939d7456f30c54f68d7b4"
+                    },
+                    {
+                      "key": "start",
+                      "value": "2001"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2030"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7145fd47-930e-497d-a4d6-2889b8ea4867",
+              "name": "API key is missing, invalid, or revoked.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "f90b893ea04939d7456f30c54f68d7b4"
+                    },
+                    {
+                      "key": "start",
+                      "value": "2001"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2030"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f9a7e07-a9d2-4ccb-81ba-48e0c5e72b07",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "f90b893ea04939d7456f30c54f68d7b4"
+                    },
+                    {
+                      "key": "start",
+                      "value": "2001"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2030"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c0dadd3-4721-442d-a536-fc9bef567ea8",
+              "name": "Monthly request quota for the plan has been exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "f90b893ea04939d7456f30c54f68d7b4"
+                    },
+                    {
+                      "key": "start",
+                      "value": "2001"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2030"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6aadeb66-8314-4b9e-a048-8ff42edbfda0",
+              "name": "An unexpected server error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "f90b893ea04939d7456f30c54f68d7b4"
+                    },
+                    {
+                      "key": "start",
+                      "value": "2001"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2030"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6528227e-981a-49aa-a2a1-179efdce70e4",
+          "name": "Search Events",
+          "request": {
+            "name": "Search Events",
+            "description": {
+              "content": "Search for events matching a query string. Query must be at least 3\ncharacters long. Returns a list of matching Event summaries.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) The search query. Must be at least 3 characters long."
+                },
+                {
+                  "disabled": false,
+                  "key": "adult",
+                  "value": "false",
+                  "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5123cc0a-e4fe-4b51-9ac7-2e64b18c034c",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "zucchini"
+                    },
+                    {
+                      "key": "adult",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The amount of requests allowed this month.",
+                  "key": "x-ratelimit-limit-month",
+                  "value": "5432"
+                },
+                {
+                  "disabled": false,
+                  "description": "The amount of requests remaining this month.",
+                  "key": "x-ratelimit-remaining-month",
+                  "value": "5432"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"query\": \"string\",\n  \"adult\": false,\n  \"events\": [\n    {\n      \"id\": \"b80630ae75c35f34c0526173dd999cfc\",\n      \"name\": \"Cinco de Mayo\",\n      \"url\": \"https://www.checkiday.com/b80630ae75c35f34c0526173dd999cfc/cinco-de-mayo\"\n    },\n    {\n      \"id\": \"b80630ae75c35f34c0526173dd999cfc\",\n      \"name\": \"Cinco de Mayo\",\n      \"url\": \"https://www.checkiday.com/b80630ae75c35f34c0526173dd999cfc/cinco-de-mayo\"\n    }\n  ],\n  \"rateLimit\": {\n    \"limitMonth\": 7026,\n    \"remainingMonth\": 4867\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3156ccf-274e-47ca-8d0a-3326f2a99831",
+              "name": "The request was malformed or a required parameter was missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "zucchini"
+                    },
+                    {
+                      "key": "adult",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66f8cc3e-80d6-4eb5-bd7c-e8413e15dfa8",
+              "name": "API key is missing, invalid, or revoked.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "zucchini"
+                    },
+                    {
+                      "key": "adult",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6880fe01-28d1-4e01-bc3e-e8bc0a3d5714",
+              "name": "Monthly request quota for the plan has been exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "zucchini"
+                    },
+                    {
+                      "key": "adult",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a9ed2b3-724a-430e-8a3d-f6ddccbe1dcb",
+              "name": "An unexpected server error occurred.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "zucchini"
+                    },
+                    {
+                      "key": "adult",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.apilayer.com/checkiday",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c872a71a-272e-40b0-9f07-c0d8377ad824",
+    "name": "Checkiday - National Holiday and Event API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The official Holiday and Event API by Checkiday — industry-leading data on\nover 5,000 national, international, and bizarre holidays and observances,\nwith thousands of descriptions, hashtags, images, founders, and\noccurrence patterns. Trusted by CNN, The New York Times, USA Today, and\nother leading publishers and media companies. Routed via the apilayer\nmarketplace.\n\n\nContact Support:\n Name: Checkiday Support",
+      "type": "text/plain"
+    }
+  }
+}
