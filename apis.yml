@@ -52,7 +52,7 @@ apis:
         url: openapi/checkiday-openapi.yml
       - type: Authentication
         url: https://apilayer.com/marketplace/checkiday-api
-      - type: SignUp
+      - type: Signup
         url: https://apilayer.com/marketplace/checkiday-api#pricing
       - type: Pricing
         url: https://apilayer.com/marketplace/checkiday-api#pricing
@@ -60,21 +60,21 @@ apis:
         url: rate-limits/checkiday-rate-limits.yml
       - type: Plans
         url: plans/checkiday-plans-pricing.yml
-      - type: SDK
+      - type: SDKs
         url: https://github.com/westy92/holiday-event-api-js
-      - type: SDK
+      - type: SDKs
         url: https://github.com/westy92/holiday-event-api-python
-      - type: SDK
+      - type: SDKs
         url: https://github.com/westy92/holiday-event-api-csharp
-      - type: SDK
+      - type: SDKs
         url: https://github.com/westy92/holiday-event-api-php
-      - type: SDK
+      - type: SDKs
         url: https://github.com/westy92/holiday-event-api-go
-      - type: SDK
+      - type: SDKs
         url: https://github.com/westy92/holiday-event-api-dart
-      - type: SDK
+      - type: SDKs
         url: https://github.com/westy92/holiday-event-api-rust
-      - type: SDK
+      - type: SDKs
         url: https://github.com/westy92/holiday-event-api-java
       - type: JSONSchema
         url: json-schema/checkiday-event-summary-schema.json
@@ -103,7 +103,7 @@ common:
     url: https://apilayer.com/
   - type: Marketplace
     url: https://apilayer.com/marketplace
-  - type: SignUp
+  - type: Signup
     url: https://apilayer.com/marketplace/checkiday-api#pricing
   - type: Login
     url: https://apilayer.com/auth/login
