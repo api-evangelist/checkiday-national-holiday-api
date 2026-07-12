@@ -97,6 +97,10 @@ apis:
       - type: CodeExamples
         url: examples/checkiday-search-example.json
 common:
+  - type: DomainSecurity
+    url: security/checkiday-national-holiday-api-domain-security.yml
+  - type: Authentication
+    url: authentication/checkiday-national-holiday-api-authentication.yml
   - type: Website
     url: https://apilayer.com/marketplace/checkiday-api
   - type: Portal

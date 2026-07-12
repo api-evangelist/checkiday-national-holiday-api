@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/checkiday-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: apikey
+  description: Your apilayer API key for the Checkiday API. Issued from the apilayer marketplace.
+  sources:
+  - openapi/checkiday-openapi.yml
