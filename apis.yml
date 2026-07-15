@@ -97,6 +97,8 @@ apis:
       - type: CodeExamples
         url: examples/checkiday-search-example.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/checkiday-national-holiday-api-agentic-access.yml
   - type: DomainSecurity
     url: security/checkiday-national-holiday-api-domain-security.yml
   - type: Authentication
