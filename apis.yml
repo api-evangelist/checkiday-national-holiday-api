@@ -1,4 +1,18 @@
 aid: checkiday-national-holiday-api
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/checkiday-national-holiday-api.png
 name: Checkiday - National Holiday and Event API
 description: |
   Industry-leading Holiday and Event API by Checkiday, providing data on more
@@ -27,76 +41,69 @@ tags:
   - Time
   - Public APIs
 apis:
-  - aid: checkiday-national-holiday-api:checkiday-holiday-api
-    name: Checkiday Holiday and Event API
-    description: |
-      REST API delivering daily holiday and observance data. Provides three
-      operations — list events for a date (`/events`), look up event details
-      by id (`/event`), and full-text search across events (`/search`).
-      Authenticated via the `apikey` header and routed through
-      `api.apilayer.com/checkiday`. Monthly rate limits are returned with
-      every response via `x-ratelimit-limit-month` and
-      `x-ratelimit-remaining-month` headers.
-    humanURL: https://apilayer.com/marketplace/checkiday-api
-    baseURL: https://api.apilayer.com/checkiday
-    tags:
-      - Calendar
-      - Holidays
-      - Events
-    properties:
-      - type: Documentation
-        url: https://apilayer.com/marketplace/checkiday-api
-      - type: APIReference
-        url: https://apilayer.com/marketplace/checkiday-api
-      - type: OpenAPI
-        url: openapi/checkiday-openapi.yml
-      - type: Authentication
-        url: https://apilayer.com/marketplace/checkiday-api
-      - type: Signup
-        url: https://apilayer.com/marketplace/checkiday-api#pricing
-      - type: Pricing
-        url: https://apilayer.com/marketplace/checkiday-api#pricing
-      - type: RateLimits
-        url: rate-limits/checkiday-rate-limits.yml
-      - type: Plans
-        url: plans/checkiday-plans-pricing.yml
-      - type: SDKs
-        url: https://github.com/westy92/holiday-event-api-js
-      - type: SDKs
-        url: https://github.com/westy92/holiday-event-api-python
-      - type: SDKs
-        url: https://github.com/westy92/holiday-event-api-csharp
-      - type: SDKs
-        url: https://github.com/westy92/holiday-event-api-php
-      - type: SDKs
-        url: https://github.com/westy92/holiday-event-api-go
-      - type: SDKs
-        url: https://github.com/westy92/holiday-event-api-dart
-      - type: SDKs
-        url: https://github.com/westy92/holiday-event-api-rust
-      - type: SDKs
-        url: https://github.com/westy92/holiday-event-api-java
-      - type: JSONSchema
-        url: json-schema/checkiday-event-summary-schema.json
-      - type: JSONSchema
-        url: json-schema/checkiday-event-detail-schema.json
-      - type: JSONSchema
-        url: json-schema/checkiday-get-events-response-schema.json
-      - type: JSONSchema
-        url: json-schema/checkiday-get-event-info-response-schema.json
-      - type: JSONSchema
-        url: json-schema/checkiday-search-response-schema.json
-      - type: JSONStructure
-        url: json-structure/checkiday-event-summary-structure.json
-      - type: JSONStructure
-        url: json-structure/checkiday-event-detail-structure.json
-      - type: CodeExamples
-        url: examples/checkiday-get-events-example.json
-      - type: CodeExamples
-        url: examples/checkiday-get-event-info-example.json
-      - type: CodeExamples
-        url: examples/checkiday-search-example.json
+- aid: checkiday-national-holiday-api:checkiday-national-holiday-api-events-api
+  name: Checkiday - National Holiday and Event API Events API
+  description: List, search, and retrieve holidays, observances, and events.
+  humanURL: https://apilayer.com/marketplace/checkiday-api
+  baseURL: https://api.apilayer.com/checkiday
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/checkiday-national-holiday-api-events-api-openapi.yml
+  - type: Documentation
+    url: https://apilayer.com/marketplace/checkiday-api
+  - type: APIReference
+    url: https://apilayer.com/marketplace/checkiday-api
+  - type: Authentication
+    url: https://apilayer.com/marketplace/checkiday-api
+  - type: Signup
+    url: https://apilayer.com/marketplace/checkiday-api#pricing
+  - type: Pricing
+    url: https://apilayer.com/marketplace/checkiday-api#pricing
+  - type: RateLimits
+    url: rate-limits/checkiday-rate-limits.yml
+  - type: Plans
+    url: plans/checkiday-plans-pricing.yml
+  - type: SDKs
+    url: https://github.com/westy92/holiday-event-api-js
+  - type: SDKs
+    url: https://github.com/westy92/holiday-event-api-python
+  - type: SDKs
+    url: https://github.com/westy92/holiday-event-api-csharp
+  - type: SDKs
+    url: https://github.com/westy92/holiday-event-api-php
+  - type: SDKs
+    url: https://github.com/westy92/holiday-event-api-go
+  - type: SDKs
+    url: https://github.com/westy92/holiday-event-api-dart
+  - type: SDKs
+    url: https://github.com/westy92/holiday-event-api-rust
+  - type: SDKs
+    url: https://github.com/westy92/holiday-event-api-java
+  - type: JSONSchema
+    url: json-schema/checkiday-event-summary-schema.json
+  - type: JSONSchema
+    url: json-schema/checkiday-event-detail-schema.json
+  - type: JSONSchema
+    url: json-schema/checkiday-get-events-response-schema.json
+  - type: JSONSchema
+    url: json-schema/checkiday-get-event-info-response-schema.json
+  - type: JSONSchema
+    url: json-schema/checkiday-search-response-schema.json
+  - type: JSONStructure
+    url: json-structure/checkiday-event-summary-structure.json
+  - type: JSONStructure
+    url: json-structure/checkiday-event-detail-structure.json
+  - type: CodeExamples
+    url: examples/checkiday-get-events-example.json
+  - type: CodeExamples
+    url: examples/checkiday-get-event-info-example.json
+  - type: CodeExamples
+    url: examples/checkiday-search-example.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/checkiday---national-holiday-and-event-api/overview
   - type: AgenticAccess
     url: agentic-access/checkiday-national-holiday-api-agentic-access.yml
   - type: DomainSecurity
