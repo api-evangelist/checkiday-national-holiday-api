@@ -1,0 +1,1120 @@
+{
+  "info": {
+    "_postman_id": "cc7ff4b8-27e7-4f63-8889-228b0ad4f6c3",
+    "name": "Checkiday - National Holiday and Event Events API",
+    "description": "The official Holiday and Event API by Checkiday \u2014 industry-leading data on\nover 5,000 national, international, and bizarre holidays and observances,\nwith thousands of descriptions, hashtags, images, founders, and\noccurrence patterns. Trusted by CNN, The New York Times, USA Today, and\nother leading publishers and media companies. Routed via the apilayer\nmarketplace.\n\n\nContact Support:\n Name: Checkiday Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:19:32.000Z",
+    "updatedAt": "2026-07-28T01:19:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cc7ff4b8-27e7-4f63-8889-228b0ad4f6c3"
+  },
+  "item": [
+    {
+      "name": "events",
+      "item": [
+        {
+          "name": "Get Events For Date",
+          "id": "0025d852-7b44-4015-b4de-bbb3d9172a34",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/events?date=<string>&adult=false&timezone=America/Chicago",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "events"
+              ],
+              "query": [
+                {
+                  "description": "Date to get the events for. Defaults to today. Accepts dates such as `5/5/2025` or ISO `YYYY-MM-DD`.",
+                  "key": "date",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false.",
+                  "key": "adult",
+                  "value": "false"
+                },
+                {
+                  "description": "IANA Time Zone for calculating dates and times. Defaults to `America/Chicago`.",
+                  "key": "timezone",
+                  "value": "America/Chicago"
+                }
+              ]
+            },
+            "description": "Get all events for a specified date. Returns the date's events, any\nmulti-day events that start on that date, and any multi-day events\nthat are continuing their observance on that date.\n"
+          },
+          "response": [
+            {
+              "id": "72745292-cec7-436a-aee3-ac5f7c4bff84",
+              "name": "Successful response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?date=<string>&adult=false&timezone=America/Chicago",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "Date to get the events for. Defaults to today. Accepts dates such as `5/5/2025` or ISO `YYYY-MM-DD`.",
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false.",
+                      "key": "adult",
+                      "value": "false"
+                    },
+                    {
+                      "description": "IANA Time Zone for calculating dates and times. Defaults to `America/Chicago`.",
+                      "key": "timezone",
+                      "value": "America/Chicago"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The amount of requests allowed this month.",
+                    "type": "text/plain"
+                  },
+                  "key": "x-ratelimit-limit-month",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The amount of requests remaining this month.",
+                    "type": "text/plain"
+                  },
+                  "key": "x-ratelimit-remaining-month",
+                  "value": "<integer>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"adult\": \"<boolean>\",\n  \"date\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"events\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"rateLimit\": {\n    \"limitMonth\": \"<integer>\",\n    \"remainingMonth\": \"<integer>\"\n  },\n  \"multiday_starting\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"multiday_ongoing\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-72745292-cec7-436a-aee3-ac5f7c4bff84"
+            },
+            {
+              "id": "c82adf06-be43-4f85-b677-01c958009070",
+              "name": "API key is missing, invalid, or revoked.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?date=<string>&adult=false&timezone=America/Chicago",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "Date to get the events for. Defaults to today. Accepts dates such as `5/5/2025` or ISO `YYYY-MM-DD`.",
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false.",
+                      "key": "adult",
+                      "value": "false"
+                    },
+                    {
+                      "description": "IANA Time Zone for calculating dates and times. Defaults to `America/Chicago`.",
+                      "key": "timezone",
+                      "value": "America/Chicago"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-c82adf06-be43-4f85-b677-01c958009070"
+            },
+            {
+              "id": "30ecf2cc-f17d-473b-b0b2-368a335f1f31",
+              "name": "Monthly request quota for the plan has been exceeded.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?date=<string>&adult=false&timezone=America/Chicago",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "Date to get the events for. Defaults to today. Accepts dates such as `5/5/2025` or ISO `YYYY-MM-DD`.",
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false.",
+                      "key": "adult",
+                      "value": "false"
+                    },
+                    {
+                      "description": "IANA Time Zone for calculating dates and times. Defaults to `America/Chicago`.",
+                      "key": "timezone",
+                      "value": "America/Chicago"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-30ecf2cc-f17d-473b-b0b2-368a335f1f31"
+            },
+            {
+              "id": "92dca649-2691-4bb5-9b07-3f279e97d26a",
+              "name": "An unexpected server error occurred.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?date=<string>&adult=false&timezone=America/Chicago",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "Date to get the events for. Defaults to today. Accepts dates such as `5/5/2025` or ISO `YYYY-MM-DD`.",
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false.",
+                      "key": "adult",
+                      "value": "false"
+                    },
+                    {
+                      "description": "IANA Time Zone for calculating dates and times. Defaults to `America/Chicago`.",
+                      "key": "timezone",
+                      "value": "America/Chicago"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-92dca649-2691-4bb5-9b07-3f279e97d26a"
+            }
+          ],
+          "createdAt": "2026-07-28T01:19:32.000Z",
+          "updatedAt": "2026-07-28T01:19:32.000Z",
+          "uid": "35240-0025d852-7b44-4015-b4de-bbb3d9172a34"
+        }
+      ],
+      "id": "7f1a7dd5-9808-4133-8063-121b1a7338a0",
+      "createdAt": "2026-07-28T01:19:32.000Z",
+      "updatedAt": "2026-07-28T01:19:32.000Z",
+      "uid": "35240-7f1a7dd5-9808-4133-8063-121b1a7338a0"
+    },
+    {
+      "name": "event",
+      "item": [
+        {
+          "name": "Get Event By Id",
+          "id": "14cc4388-f2c6-4732-997c-6acd6cdf1bde",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/event?id=<string>&start=<integer>&end=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "event"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The ID of the requested Event.",
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The starting range of returned occurrences. Defaults to 2 years prior.",
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The ending range of returned occurrences. Defaults to 3 years in the future.",
+                  "key": "end",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Get additional information for a specific Event, including alternate\nnames, hashtags, images, sources, founders, description, how to\nobserve, observance patterns, and historical and future occurrences.\n"
+          },
+          "response": [
+            {
+              "id": "4d71133a-4c7f-47b9-9986-c350ce9affae",
+              "name": "Successful response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/event?id=<string>&start=<integer>&end=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "event"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the requested Event.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The starting range of returned occurrences. Defaults to 2 years prior.",
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The ending range of returned occurrences. Defaults to 3 years in the future.",
+                      "key": "end",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The amount of requests allowed this month.",
+                    "type": "text/plain"
+                  },
+                  "key": "x-ratelimit-limit-month",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The amount of requests remaining this month.",
+                    "type": "text/plain"
+                  },
+                  "key": "x-ratelimit-remaining-month",
+                  "value": "<integer>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"event\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<uri>\",\n    \"adult\": \"<boolean>\",\n    \"alternate_names\": [\n      {\n        \"name\": \"<string>\",\n        \"first_year\": \"<integer>\",\n        \"last_year\": \"<integer>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"first_year\": \"<integer>\",\n        \"last_year\": \"<integer>\"\n      }\n    ],\n    \"hashtags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"image\": {\n      \"small\": \"<uri>\",\n      \"medium\": \"<uri>\",\n      \"large\": \"<uri>\"\n    },\n    \"sources\": [\n      \"<uri>\",\n      \"<uri>\"\n    ],\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\",\n      \"markdown\": \"<string>\"\n    },\n    \"how_to_observe\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\",\n      \"markdown\": \"<string>\"\n    },\n    \"patterns\": [\n      {\n        \"observed\": \"<string>\",\n        \"observed_html\": \"<string>\",\n        \"observed_markdown\": \"<string>\",\n        \"length\": \"<integer>\",\n        \"first_year\": \"<integer>\",\n        \"last_year\": \"<integer>\"\n      },\n      {\n        \"observed\": \"<string>\",\n        \"observed_html\": \"<string>\",\n        \"observed_markdown\": \"<string>\",\n        \"length\": \"<integer>\",\n        \"first_year\": \"<integer>\",\n        \"last_year\": \"<integer>\"\n      }\n    ],\n    \"occurrences\": [\n      {\n        \"date\": \"<string>\",\n        \"length\": \"<integer>\"\n      },\n      {\n        \"date\": \"<string>\",\n        \"length\": \"<integer>\"\n      }\n    ],\n    \"founders\": [\n      {\n        \"name\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"date\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"date\": \"<string>\"\n      }\n    ],\n    \"tags\": [\n      {\n        \"name\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"rateLimit\": {\n    \"limitMonth\": \"<integer>\",\n    \"remainingMonth\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-4d71133a-4c7f-47b9-9986-c350ce9affae"
+            },
+            {
+              "id": "dfe56675-7dfe-4681-aa2c-12cc8f4daff8",
+              "name": "The request was malformed or a required parameter was missing.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/event?id=<string>&start=<integer>&end=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "event"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the requested Event.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The starting range of returned occurrences. Defaults to 2 years prior.",
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The ending range of returned occurrences. Defaults to 3 years in the future.",
+                      "key": "end",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-dfe56675-7dfe-4681-aa2c-12cc8f4daff8"
+            },
+            {
+              "id": "079cb34c-bdc6-48d7-9883-b474179fce5a",
+              "name": "API key is missing, invalid, or revoked.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/event?id=<string>&start=<integer>&end=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "event"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the requested Event.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The starting range of returned occurrences. Defaults to 2 years prior.",
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The ending range of returned occurrences. Defaults to 3 years in the future.",
+                      "key": "end",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-079cb34c-bdc6-48d7-9883-b474179fce5a"
+            },
+            {
+              "id": "8b3756c0-7401-4973-9745-1c4c8de9ab51",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/event?id=<string>&start=<integer>&end=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "event"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the requested Event.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The starting range of returned occurrences. Defaults to 2 years prior.",
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The ending range of returned occurrences. Defaults to 3 years in the future.",
+                      "key": "end",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-8b3756c0-7401-4973-9745-1c4c8de9ab51"
+            },
+            {
+              "id": "f168f862-b207-4f01-80bc-4a9b754640de",
+              "name": "Monthly request quota for the plan has been exceeded.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/event?id=<string>&start=<integer>&end=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "event"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the requested Event.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The starting range of returned occurrences. Defaults to 2 years prior.",
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The ending range of returned occurrences. Defaults to 3 years in the future.",
+                      "key": "end",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-f168f862-b207-4f01-80bc-4a9b754640de"
+            },
+            {
+              "id": "dbdb74bf-b446-4b21-bed3-97143487bcca",
+              "name": "An unexpected server error occurred.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/event?id=<string>&start=<integer>&end=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "event"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the requested Event.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The starting range of returned occurrences. Defaults to 2 years prior.",
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The ending range of returned occurrences. Defaults to 3 years in the future.",
+                      "key": "end",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-dbdb74bf-b446-4b21-bed3-97143487bcca"
+            }
+          ],
+          "createdAt": "2026-07-28T01:19:32.000Z",
+          "updatedAt": "2026-07-28T01:19:32.000Z",
+          "uid": "35240-14cc4388-f2c6-4732-997c-6acd6cdf1bde"
+        }
+      ],
+      "id": "63692756-e015-464b-a910-dca14e6a4d73",
+      "createdAt": "2026-07-28T01:19:32.000Z",
+      "updatedAt": "2026-07-28T01:19:32.000Z",
+      "uid": "35240-63692756-e015-464b-a910-dca14e6a4d73"
+    },
+    {
+      "name": "search",
+      "item": [
+        {
+          "name": "Search Events",
+          "id": "07943b57-5133-4c7a-9dd3-368edb01e3d1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/search?query=<string>&adult=false",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The search query. Must be at least 3 characters long.",
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false.",
+                  "key": "adult",
+                  "value": "false"
+                }
+              ]
+            },
+            "description": "Search for events matching a query string. Query must be at least 3\ncharacters long. Returns a list of matching Event summaries.\n"
+          },
+          "response": [
+            {
+              "id": "664d9d77-9bf4-4e7c-906d-c6b7616d8f76",
+              "name": "Successful response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search?query=<string>&adult=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The search query. Must be at least 3 characters long.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false.",
+                      "key": "adult",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The amount of requests allowed this month.",
+                    "type": "text/plain"
+                  },
+                  "key": "x-ratelimit-limit-month",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The amount of requests remaining this month.",
+                    "type": "text/plain"
+                  },
+                  "key": "x-ratelimit-remaining-month",
+                  "value": "<integer>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"query\": \"<string>\",\n  \"adult\": \"<boolean>\",\n  \"events\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"rateLimit\": {\n    \"limitMonth\": \"<integer>\",\n    \"remainingMonth\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-664d9d77-9bf4-4e7c-906d-c6b7616d8f76"
+            },
+            {
+              "id": "cbfff44e-55ef-4ff5-b3bd-75c37e24a3c6",
+              "name": "The request was malformed or a required parameter was missing.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search?query=<string>&adult=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The search query. Must be at least 3 characters long.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false.",
+                      "key": "adult",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-cbfff44e-55ef-4ff5-b3bd-75c37e24a3c6"
+            },
+            {
+              "id": "1262044f-b6b5-415a-ad3c-5f9f46a1dae0",
+              "name": "API key is missing, invalid, or revoked.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search?query=<string>&adult=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The search query. Must be at least 3 characters long.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false.",
+                      "key": "adult",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-1262044f-b6b5-415a-ad3c-5f9f46a1dae0"
+            },
+            {
+              "id": "f0ffe297-fdaf-4a35-aaaf-2a5dddb3dfa1",
+              "name": "Monthly request quota for the plan has been exceeded.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search?query=<string>&adult=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The search query. Must be at least 3 characters long.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false.",
+                      "key": "adult",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-f0ffe297-fdaf-4a35-aaaf-2a5dddb3dfa1"
+            },
+            {
+              "id": "8c9704bb-de47-434c-803c-7a0d75e54bae",
+              "name": "An unexpected server error occurred.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search?query=<string>&adult=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The search query. Must be at least 3 characters long.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include events that may be unsafe for viewing at work or by children. Defaults to false.",
+                      "key": "adult",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:19:32.000Z",
+              "updatedAt": "2026-07-28T01:19:32.000Z",
+              "uid": "35240-8c9704bb-de47-434c-803c-7a0d75e54bae"
+            }
+          ],
+          "createdAt": "2026-07-28T01:19:32.000Z",
+          "updatedAt": "2026-07-28T01:19:32.000Z",
+          "uid": "35240-07943b57-5133-4c7a-9dd3-368edb01e3d1"
+        }
+      ],
+      "id": "65bfc2a2-c008-4652-b399-b773c54f5881",
+      "createdAt": "2026-07-28T01:19:32.000Z",
+      "updatedAt": "2026-07-28T01:19:32.000Z",
+      "uid": "35240-65bfc2a2-c008-4652-b399-b773c54f5881"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.apilayer.com/checkiday"
+    }
+  ]
+}

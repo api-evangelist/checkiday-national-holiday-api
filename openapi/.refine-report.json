@@ -1,0 +1,14 @@
+{
+  "provider": "checkiday-national-holiday-api",
+  "sources": [
+    "checkiday-national-holiday-api-events-api-openapi.yml"
+  ],
+  "outputs": [
+    "checkiday-national-holiday-api-events-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
