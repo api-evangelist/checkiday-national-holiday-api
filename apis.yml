@@ -102,6 +102,13 @@ apis:
   - type: CodeExamples
     url: examples/checkiday-search-example.json
 common:
+  - type: IssueTracker
+    url: https://github.com/westy92/holiday-event-api-js/issues
+  - type: Releases
+    url: https://github.com/westy92/holiday-event-api-js/releases
+  - type: License
+    name: MIT
+    url: https://github.com/westy92/holiday-event-api-js/blob/main/LICENSE
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/checkiday---national-holiday-and-event-api/overview
   - type: AgenticAccess
@@ -148,15 +155,6 @@ common:
   - type: Resources
     name: Checkiday Spectral Rules
     url: rules/checkiday-rules.yml
-  - type: Resources
-    name: Holiday Lookup Capability
-    url: capabilities/holiday-lookup.yaml
-  - type: Resources
-    name: Event Discovery Capability
-    url: capabilities/event-discovery.yaml
-  - type: Resources
-    name: Editorial Calendar Capability
-    url: capabilities/editorial-calendar.yaml
   - type: Resources
     name: Checkiday FinOps
     url: finops/checkiday-finops.yml
