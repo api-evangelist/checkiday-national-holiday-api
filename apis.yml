@@ -24,7 +24,7 @@ description: |
   Trusted since 2011 by media organizations including CNN, The New York Times,
   and USA Today.
 url: https://apilayer.com/marketplace/checkiday-api
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-05-28'
 modified: '2026-05-30'
 x-source: public-apis/public-apis
