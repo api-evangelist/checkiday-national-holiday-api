@@ -35,6 +35,14 @@ x-tier-reason: bulk-registered-from-public-apis
 tags:
   - Calendar
   - Holidays
+  - Event
+  - Observances
+  - Dates
+  - Time
+  - Public APIs
+tags_raw:
+  - Calendar
+  - Holidays
   - Events
   - Observances
   - Dates
@@ -47,6 +55,8 @@ apis:
   humanURL: https://apilayer.com/marketplace/checkiday-api
   baseURL: https://api.apilayer.com/checkiday
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
