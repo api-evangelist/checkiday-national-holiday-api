@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Checkiday - National Holiday and Event Events API
   description: 'The official Holiday and Event API by Checkiday — industry-leading data on
@@ -11,9 +11,7 @@ info:
 
     other leading publishers and media companies. Routed via the apilayer
 
-    marketplace.
-
-    '
+    marketplace.'
   version: 1.1.0
   contact:
     name: Checkiday Support
@@ -39,9 +37,7 @@ paths:
 
         multi-day events that start on that date, and any multi-day events
 
-        that are continuing their observance on that date.
-
-        '
+        that are continuing their observance on that date.'
       tags:
       - Events
       parameters:
@@ -97,9 +93,7 @@ paths:
 
         names, hashtags, images, sources, founders, description, how to
 
-        observe, observance patterns, and historical and future occurrences.
-
-        '
+        observe, observance patterns, and historical and future occurrences.'
       tags:
       - Events
       parameters:
@@ -156,9 +150,7 @@ paths:
       summary: Search Events
       description: 'Search for events matching a query string. Query must be at least 3
 
-        characters long. Returns a list of matching Event summaries.
-
-        '
+        characters long. Returns a list of matching Event summaries.'
       tags:
       - Events
       parameters:
@@ -203,6 +195,52 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   schemas:
+    ImageInfo:
+      type: object
+      description: Image variants for an Event.
+      required:
+      - small
+      - medium
+      - large
+      properties:
+        small:
+          type: string
+          format: uri
+          description: A small image (~300px wide).
+        medium:
+          type: string
+          format: uri
+          description: A medium image (~600px wide).
+        large:
+          type: string
+          format: uri
+          description: A large image (~1200px wide).
+    RichText:
+      type: object
+      description: Text formatted in multiple representations.
+      properties:
+        text:
+          type: string
+          description: Formatted as plain text.
+        html:
+          type: string
+          description: Formatted as HTML.
+        markdown:
+          type: string
+          description: Formatted as Markdown.
+    RateLimit:
+      type: object
+      description: Your API plan's current rate limit and status.
+      required:
+      - limitMonth
+      - remainingMonth
+      properties:
+        limitMonth:
+          type: integer
+          description: The amount of requests allowed this month.
+        remainingMonth:
+          type: integer
+          description: The amount of requests remaining this month.
     Tag:
       type: object
       description: An Event tag.
@@ -212,6 +250,44 @@ components:
         name:
           type: string
           description: The name of the tag.
+    SearchResponse:
+      type: object
+      description: Response payload for `/search`.
+      required:
+      - query
+      - adult
+      - events
+      - rateLimit
+      properties:
+        query:
+          type: string
+        adult:
+          type: boolean
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventSummary'
+        rateLimit:
+          $ref: '#/components/schemas/RateLimit'
+    AlternateName:
+      type: object
+      description: Information about an Event's alternate name.
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: An Event's alternate name.
+        first_year:
+          type:
+          - integer
+          - 'null'
+          description: The first year this alternate name was in effect. Null implies unknown.
+        last_year:
+          type:
+          - integer
+          - 'null'
+          description: The last year this alternate name was in effect. Null implies unknown.
     EventSummary:
       type: object
       description: A summary of an Event.
@@ -233,6 +309,58 @@ components:
           format: uri
           description: The Event URL on checkiday.com.
           example: https://www.checkiday.com/b80630ae75c35f34c0526173dd999cfc/cinco-de-mayo
+    GetEventsResponse:
+      type: object
+      description: Response payload for `/events`.
+      required:
+      - adult
+      - date
+      - timezone
+      - events
+      - rateLimit
+      properties:
+        adult:
+          type: boolean
+          description: Whether adult entries can be included.
+        date:
+          type: string
+          description: The date string (echoed back).
+        timezone:
+          type: string
+          description: The timezone used to calculate the date's events.
+        events:
+          type: array
+          description: The date's events.
+          items:
+            $ref: '#/components/schemas/EventSummary'
+        multiday_starting:
+          type: array
+          description: Multi-day events that start on the date.
+          items:
+            $ref: '#/components/schemas/EventSummary'
+        multiday_ongoing:
+          type: array
+          description: Multi-day events that are continuing their observance on the date.
+          items:
+            $ref: '#/components/schemas/EventSummary'
+        rateLimit:
+          $ref: '#/components/schemas/RateLimit'
+    FounderInfo:
+      type: object
+      description: Information about an Event founder.
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: The founder's name.
+        url:
+          type: string
+          format: uri
+          description: A link to the founder.
+        date:
+          type: string
+          description: The date the Event was founded.
     Pattern:
       type: object
       description: Information about an Event's observance pattern.
@@ -243,11 +371,13 @@ components:
       - length
       properties:
         first_year:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         last_year:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         observed:
           type: string
           description: A description of how this event is observed, plain text.
@@ -260,53 +390,6 @@ components:
         length:
           type: integer
           description: For how many days this event is celebrated.
-    AlternateName:
-      type: object
-      description: Information about an Event's alternate name.
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: An Event's alternate name.
-        first_year:
-          type: integer
-          nullable: true
-          description: The first year this alternate name was in effect. Null implies unknown.
-        last_year:
-          type: integer
-          nullable: true
-          description: The last year this alternate name was in effect. Null implies unknown.
-    GetEventInfoResponse:
-      type: object
-      description: Response payload for `/event`.
-      required:
-      - event
-      - rateLimit
-      properties:
-        event:
-          $ref: '#/components/schemas/EventDetail'
-        rateLimit:
-          $ref: '#/components/schemas/RateLimit'
-    SearchResponse:
-      type: object
-      description: Response payload for `/search`.
-      required:
-      - query
-      - adult
-      - events
-      - rateLimit
-      properties:
-        query:
-          type: string
-        adult:
-          type: boolean
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventSummary'
-        rateLimit:
-          $ref: '#/components/schemas/RateLimit'
     EventDetail:
       type: object
       description: A detailed Event including descriptions, founders, patterns, and occurrences.
@@ -362,19 +445,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
-    RichText:
-      type: object
-      description: Text formatted in multiple representations.
-      properties:
-        text:
-          type: string
-          description: Formatted as plain text.
-        html:
-          type: string
-          description: Formatted as HTML.
-        markdown:
-          type: string
-          description: Formatted as Markdown.
     ErrorResponse:
       type: object
       required:
@@ -396,100 +466,32 @@ components:
         length:
           type: integer
           description: The length (in days) of the Event occurrence.
-    ImageInfo:
+    GetEventInfoResponse:
       type: object
-      description: Image variants for an Event.
+      description: Response payload for `/event`.
       required:
-      - small
-      - medium
-      - large
-      properties:
-        small:
-          type: string
-          format: uri
-          description: A small image (~300px wide).
-        medium:
-          type: string
-          format: uri
-          description: A medium image (~600px wide).
-        large:
-          type: string
-          format: uri
-          description: A large image (~1200px wide).
-    RateLimit:
-      type: object
-      description: Your API plan's current rate limit and status.
-      required:
-      - limitMonth
-      - remainingMonth
-      properties:
-        limitMonth:
-          type: integer
-          description: The amount of requests allowed this month.
-        remainingMonth:
-          type: integer
-          description: The amount of requests remaining this month.
-    GetEventsResponse:
-      type: object
-      description: Response payload for `/events`.
-      required:
-      - adult
-      - date
-      - timezone
-      - events
+      - event
       - rateLimit
       properties:
-        adult:
-          type: boolean
-          description: Whether adult entries can be included.
-        date:
-          type: string
-          description: The date string (echoed back).
-        timezone:
-          type: string
-          description: The timezone used to calculate the date's events.
-        events:
-          type: array
-          description: The date's events.
-          items:
-            $ref: '#/components/schemas/EventSummary'
-        multiday_starting:
-          type: array
-          description: Multi-day events that start on the date.
-          items:
-            $ref: '#/components/schemas/EventSummary'
-        multiday_ongoing:
-          type: array
-          description: Multi-day events that are continuing their observance on the date.
-          items:
-            $ref: '#/components/schemas/EventSummary'
+        event:
+          $ref: '#/components/schemas/EventDetail'
         rateLimit:
           $ref: '#/components/schemas/RateLimit'
-    FounderInfo:
-      type: object
-      description: Information about an Event founder.
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: The founder's name.
-        url:
-          type: string
-          format: uri
-          description: A link to the founder.
-        date:
-          type: string
-          description: The date the Event was founded.
   responses:
-    RateLimited:
-      description: Monthly request quota for the plan has been exceeded.
+    ServerError:
+      description: An unexpected server error occurred.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    ServerError:
-      description: An unexpected server error occurred.
+    BadRequest:
+      description: The request was malformed or a required parameter was missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    RateLimited:
+      description: Monthly request quota for the plan has been exceeded.
       content:
         application/json:
           schema:
@@ -502,12 +504,6 @@ components:
             $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: API key is missing, invalid, or revoked.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: The request was malformed or a required parameter was missing.
       content:
         application/json:
           schema:
