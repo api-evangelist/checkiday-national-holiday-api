@@ -215,19 +215,6 @@ components:
           type: string
           format: uri
           description: A large image (~1200px wide).
-    RichText:
-      type: object
-      description: Text formatted in multiple representations.
-      properties:
-        text:
-          type: string
-          description: Formatted as plain text.
-        html:
-          type: string
-          description: Formatted as HTML.
-        markdown:
-          type: string
-          description: Formatted as Markdown.
     RateLimit:
       type: object
       description: Your API plan's current rate limit and status.
@@ -241,15 +228,6 @@ components:
         remainingMonth:
           type: integer
           description: The amount of requests remaining this month.
-    Tag:
-      type: object
-      description: An Event tag.
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: The name of the tag.
     SearchResponse:
       type: object
       description: Response payload for `/search`.
@@ -269,46 +247,6 @@ components:
             $ref: '#/components/schemas/EventSummary'
         rateLimit:
           $ref: '#/components/schemas/RateLimit'
-    AlternateName:
-      type: object
-      description: Information about an Event's alternate name.
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: An Event's alternate name.
-        first_year:
-          type:
-          - integer
-          - 'null'
-          description: The first year this alternate name was in effect. Null implies unknown.
-        last_year:
-          type:
-          - integer
-          - 'null'
-          description: The last year this alternate name was in effect. Null implies unknown.
-    EventSummary:
-      type: object
-      description: A summary of an Event.
-      required:
-      - id
-      - name
-      - url
-      properties:
-        id:
-          type: string
-          description: The Event Id.
-          example: b80630ae75c35f34c0526173dd999cfc
-        name:
-          type: string
-          description: The Event name.
-          example: Cinco de Mayo
-        url:
-          type: string
-          format: uri
-          description: The Event URL on checkiday.com.
-          example: https://www.checkiday.com/b80630ae75c35f34c0526173dd999cfc/cinco-de-mayo
     GetEventsResponse:
       type: object
       description: Response payload for `/events`.
@@ -345,22 +283,6 @@ components:
             $ref: '#/components/schemas/EventSummary'
         rateLimit:
           $ref: '#/components/schemas/RateLimit'
-    FounderInfo:
-      type: object
-      description: Information about an Event founder.
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: The founder's name.
-        url:
-          type: string
-          format: uri
-          description: A link to the founder.
-        date:
-          type: string
-          description: The date the Event was founded.
     Pattern:
       type: object
       description: Information about an Event's observance pattern.
@@ -390,6 +312,42 @@ components:
         length:
           type: integer
           description: For how many days this event is celebrated.
+    FounderInfo:
+      type: object
+      description: Information about an Event founder.
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: The founder's name.
+        url:
+          type: string
+          format: uri
+          description: A link to the founder.
+        date:
+          type: string
+          description: The date the Event was founded.
+    Tag:
+      type: object
+      description: An Event tag.
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: The name of the tag.
+    GetEventInfoResponse:
+      type: object
+      description: Response payload for `/event`.
+      required:
+      - event
+      - rateLimit
+      properties:
+        event:
+          $ref: '#/components/schemas/EventDetail'
+        rateLimit:
+          $ref: '#/components/schemas/RateLimit'
     EventDetail:
       type: object
       description: A detailed Event including descriptions, founders, patterns, and occurrences.
@@ -445,6 +403,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
+    RichText:
+      type: object
+      description: Text formatted in multiple representations.
+      properties:
+        text:
+          type: string
+          description: Formatted as plain text.
+        html:
+          type: string
+          description: Formatted as HTML.
+        markdown:
+          type: string
+          description: Formatted as Markdown.
     ErrorResponse:
       type: object
       required:
@@ -466,32 +437,55 @@ components:
         length:
           type: integer
           description: The length (in days) of the Event occurrence.
-    GetEventInfoResponse:
+    EventSummary:
       type: object
-      description: Response payload for `/event`.
+      description: A summary of an Event.
       required:
-      - event
-      - rateLimit
+      - id
+      - name
+      - url
       properties:
-        event:
-          $ref: '#/components/schemas/EventDetail'
-        rateLimit:
-          $ref: '#/components/schemas/RateLimit'
+        id:
+          type: string
+          description: The Event Id.
+          example: b80630ae75c35f34c0526173dd999cfc
+        name:
+          type: string
+          description: The Event name.
+          example: Cinco de Mayo
+        url:
+          type: string
+          format: uri
+          description: The Event URL on checkiday.com.
+          example: https://www.checkiday.com/b80630ae75c35f34c0526173dd999cfc/cinco-de-mayo
+    AlternateName:
+      type: object
+      description: Information about an Event's alternate name.
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: An Event's alternate name.
+        first_year:
+          type:
+          - integer
+          - 'null'
+          description: The first year this alternate name was in effect. Null implies unknown.
+        last_year:
+          type:
+          - integer
+          - 'null'
+          description: The last year this alternate name was in effect. Null implies unknown.
   responses:
-    ServerError:
-      description: An unexpected server error occurred.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: The request was malformed or a required parameter was missing.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     RateLimited:
       description: Monthly request quota for the plan has been exceeded.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: API key is missing, invalid, or revoked.
       content:
         application/json:
           schema:
@@ -502,8 +496,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: API key is missing, invalid, or revoked.
+    ServerError:
+      description: An unexpected server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: The request was malformed or a required parameter was missing.
       content:
         application/json:
           schema:
