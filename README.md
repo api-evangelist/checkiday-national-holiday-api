@@ -1,4 +1,4 @@
-# Checkiday - National Holiday and Event API (checkiday-national-holiday-api)
+# Checkiday - National Holiday and Event API
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -73,101 +73,167 @@ JavaScript, TypeScript, Python, C#, PHP, Go, Dart, Rust, and Java/Kotlin.
 Trusted since 2011 by media organizations including CNN, The New York Times,
 and USA Today.
 
-**APIs.json:** [https://apilayer.com/marketplace/checkiday-api](https://apilayer.com/marketplace/checkiday-api)
+**Areas:** Calendar · Holidays · Event · Observances · Dates · Time · Public APIs
 
-## Tags
+## Checkiday - National Holiday and Event API on APIs.io
 
-- Calendar
-- Holidays
-- Events
-- Observances
-- Dates
-- Time
-- Public APIs
+Everything profiled for Checkiday - National Holiday and Event API is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/checkiday-national-holiday-api/](https://apis.io/providers/checkiday-national-holiday-api/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (1)
 
-- **Created:** 2026-05-28
-- **Modified:** 2026-05-30
+- [Checkiday - National Holiday and Event API Events API](https://apis.io/apis/checkiday-national-holiday-api/checkiday-national-holiday-api-events-api/) — List, search, and retrieve holidays, observances, and events.
 
-## APIs
+### Published properties
 
-### Checkiday Holiday and Event API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API delivering daily holiday and observance data. Provides three
-operations — list events for a date (`/events`), look up event details
-by id (`/event`), and full-text search across events (`/search`).
-Authenticated via the `apikey` header and routed through
-`api.apilayer.com/checkiday`. Monthly rate limits are returned with
-every response via `x-ratelimit-limit-month` and
-`x-ratelimit-remaining-month` headers.
+#### Agentic access (1)
 
-- **Human URL:** [https://apilayer.com/marketplace/checkiday-api](https://apilayer.com/marketplace/checkiday-api)
-- **Base URL:** `https://api.apilayer.com/checkiday`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Checkiday National Holiday Api Agentic Access](https://apis.io/agentic-access/checkiday-national-holiday-api/checkiday-national-holiday-api-agentic-access/)
 
-- Calendar
-- Holidays
-- Events
+#### JSON Schema (5)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://apilayer.com/marketplace/checkiday-api)
-- [API Reference](https://apilayer.com/marketplace/checkiday-api)
-- [OpenAPI](openapi/checkiday-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/checkiday.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/checkiday.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://apilayer.com/marketplace/checkiday-api)
-- [Sign Up](https://apilayer.com/marketplace/checkiday-api#pricing)
-- [Pricing](https://apilayer.com/marketplace/checkiday-api#pricing)
-- [Rate Limits](rate-limits/checkiday-rate-limits.yml)
-- [Plans](plans/checkiday-plans-pricing.yml)
-- [SDK](https://github.com/westy92/holiday-event-api-js)
-- [SDK](https://github.com/westy92/holiday-event-api-python)
-- [SDK](https://github.com/westy92/holiday-event-api-csharp)
-- [SDK](https://github.com/westy92/holiday-event-api-php)
-- [SDK](https://github.com/westy92/holiday-event-api-go)
-- [SDK](https://github.com/westy92/holiday-event-api-dart)
-- [SDK](https://github.com/westy92/holiday-event-api-rust)
-- [SDK](https://github.com/westy92/holiday-event-api-java)
-- [JSON Schema](json-schema/checkiday-event-summary-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/checkiday-event-detail-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/checkiday-get-events-response-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/checkiday-get-event-info-response-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/checkiday-search-response-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/checkiday-event-summary-structure.json)
-- [JSON Structure](json-structure/checkiday-event-detail-structure.json)
-- [Code Examples](examples/checkiday-get-events-example.json)
-- [Code Examples](examples/checkiday-get-event-info-example.json)
-- [Code Examples](examples/checkiday-search-example.json)
+- [Checkiday Event Detail](https://apis.io/schemas/checkiday-national-holiday-api/checkiday-event-detail/)
+- [Checkiday Event Summary](https://apis.io/schemas/checkiday-national-holiday-api/checkiday-event-summary/)
+- [Checkiday GetEventInfo Response](https://apis.io/schemas/checkiday-national-holiday-api/checkiday-get-event-info-response/)
+- [Checkiday GetEvents Response](https://apis.io/schemas/checkiday-national-holiday-api/checkiday-get-events-response/)
+- [Checkiday Search Response](https://apis.io/schemas/checkiday-national-holiday-api/checkiday-search-response/)
 
-## Common Properties
+#### JSON Structure (2)
+
+Data models expressed in JSON Structure.
+
+- [Checkiday Event Detail Structure](https://apis.io/json-structure/checkiday-national-holiday-api/checkiday-event-detail-structure/)
+- [Checkiday Event Summary Structure](https://apis.io/json-structure/checkiday-national-holiday-api/checkiday-event-summary-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Checkiday National Holiday Api Context](https://apis.io/jsonld/checkiday-national-holiday-api/checkiday-national-holiday-api-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Checkiday Holiday and Event API Vocabulary](https://apis.io/vocabularies/checkiday-national-holiday-api/checkiday-national-holiday-api-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Checkiday Get Event Info Example](https://apis.io/examples/checkiday-national-holiday-api/checkiday-get-event-info-example/)
+- [Checkiday Get Events Example](https://apis.io/examples/checkiday-national-holiday-api/checkiday-get-events-example/)
+- [Checkiday Search Example](https://apis.io/examples/checkiday-national-holiday-api/checkiday-search-example/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Checkiday - National Holiday and Event API](https://apis.io/collections/checkiday-national-holiday-api/open-checkiday/)
+- [Checkiday - National Holiday and Event Events API](https://apis.io/collections/checkiday-national-holiday-api/open-checkiday-national-holiday-api-events-api/)
+- [Checkiday - National Holiday and Event Events API](https://apis.io/collections/checkiday-national-holiday-api/postman-checkiday-national-holiday-api-events-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Checkiday - National Holiday and Event API — jsonschema rules](https://apis.io/rules/checkiday-national-holiday-api/checkiday-national-holiday-api-jsonschema-spectral-rules/)
+- [Checkiday - National Holiday and Event API — checkiday rules](https://apis.io/rules/checkiday-national-holiday-api/checkiday-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Checkiday National Holiday Api Authentication](https://apis.io/security/checkiday-national-holiday-api/checkiday-national-holiday-api-authentication/)
+- [Checkiday National Holiday Api Domain Security](https://apis.io/security/checkiday-national-holiday-api/checkiday-national-holiday-api-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Checkiday Plans Pricing](https://apis.io/plans/checkiday-national-holiday-api/checkiday-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Checkiday Rate Limits](https://apis.io/rate-limits/checkiday-national-holiday-api/checkiday-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Checkiday Finops](https://apis.io/finops/checkiday-national-holiday-api/checkiday-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://apilayer.com/marketplace/checkiday-api)
-- [Portal](https://apilayer.com/)
-- [Marketplace](https://apilayer.com/marketplace)
-- [Sign Up](https://apilayer.com/marketplace/checkiday-api#pricing)
-- [Login](https://apilayer.com/auth/login)
 - [Pricing](https://apilayer.com/marketplace/checkiday-api#pricing)
-- [Terms of Service](https://apilayer.com/terms)
-- [Privacy Policy](https://apilayer.com/privacy-policy)
 - [Support](https://apilayer.com/contact)
-- [Contact](https://apilayer.com/contact)
-- [Status Page](https://status.apilayer.com/)
 - [Blog](https://blog.apilayer.com/)
-- [GitHub Organization](https://github.com/westy92)
-- [GitHub Repository](https://github.com/westy92/holiday-event-api-js)
-- [Public APIs Listing](https://github.com/public-apis/public-apis)
-- [JSON-LD](json-ld/checkiday-national-holiday-api-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Resources](vocabulary/checkiday-national-holiday-api-vocabulary.yml)
-- [Resources](rules/checkiday-rules.yml)
-- [Resources](capabilities/holiday-lookup.yaml)
-- [Resources](capabilities/event-discovery.yaml)
-- [Resources](capabilities/editorial-calendar.yaml)
-- [Resources](finops/checkiday-finops.yml)
+- [Terms of service](https://apilayer.com/terms)
+- [Privacy policy](https://apilayer.com/privacy-policy)
+- [GitHub](https://github.com/westy92)
+- [Status](https://status.apilayer.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 44.6** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 66.9 |
+| Contract governance | 13.6 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 57.1 |
+| Access clarity | 25.0 |
+
+**Agent readiness 29.1** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | verified |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/checkiday-national-holiday-api/](https://apis.io/providers/checkiday-national-holiday-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Checkiday - National Holiday and Event API: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/checkiday-national-holiday-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
